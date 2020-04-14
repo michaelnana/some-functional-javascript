@@ -25,7 +25,7 @@ const sumOfArr = (arr) => {
   return arr.reduce((sum, value) => sum + value, 0);
 };
 
-const arrToObjCompacter = (values) =>
+export const arrToObjCompacter = (values) =>
   values.reduce((cummu, obj) => {
     const key = Object.keys(obj)[0];
     return Object.assign(cummu, {
@@ -37,7 +37,7 @@ const arrToObjCompacter = (values) =>
 
 // Question Two
 
-const addOneAndDouble = (x) => {
+export const addOneAndDouble = (x) => {
   return compose(
     (x) => x + 1,
     (x) => x * 2,
@@ -54,7 +54,7 @@ const compose = (...funcs) => (value) => {
 
 // Question Three
 
-const filterV1 = (func) => (arr) => {
+export const filterV1 = (func) => (arr) => {
   const result = [];
   for (var i = 0; i < arr.length; i++) {
     if (func(arr[i])) {
@@ -64,14 +64,14 @@ const filterV1 = (func) => (arr) => {
   return result;
 };
 
-const filterV2 = (func) => (arr) => {
+export const filterV2 = (func) => (arr) => {
   return arr.reduce(
     (res, value) => (func(value) ? [...res, ...[value]] : res),
     []
   );
 };
 
-const filterV3 = (func) => (arr) => {
+export const filterV3 = (func) => (arr) => {
   var i = 0;
   const recur = (i, result) => {
     if (i >= arr.length - 1) {
